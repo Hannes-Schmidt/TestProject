@@ -50,8 +50,14 @@
             <aura:set attribute="title">
                 <lightning:badge label="GitTest"/>
             </aura:set>
-            <lightning:input type="number" label="X" name="x" value="{!v.xNumber}" />
-            <lightning:input type="number" label="Y" name="y" value="{!v.yNumber}" />
+            <lightning:layout>
+                <lightning:layoutItem size="3">
+                    <lightning:input type="number" label="X" name="x" value="{!v.xNumber}" />
+                </lightning:layoutItem>
+                <lightning:layoutItem size="3">
+                    <lightning:input type="number" label="Y" name="y" value="{!v.yNumber}" />
+                </lightning:layoutItem>
+            </lightning:layout>
             <lightning:button label="Calculate X + Y" onclick="{!c.onCalculateButtonClick}"/>
         </lightning:card>
     </div>
