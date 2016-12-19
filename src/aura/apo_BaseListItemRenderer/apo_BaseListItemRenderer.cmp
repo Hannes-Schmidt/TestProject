@@ -1,0 +1,45 @@
+<!--
+    Copyright 2016 appero GmbH 
+    All rights reserved. 
+
+    @author: cmenzinger@appero.com
+-->
+<aura:component extensible="true" abstract="true" access="global">    
+    
+    <!-- dependencies -->
+
+ 
+    <!-- events -->
+    <aura:registerEvent name="itemRendererClick" type="c:apo_ItemRendererEvent" />
+
+
+    <!-- attributes -->
+    <aura:attribute name="data" access="global" type="Object" default="Hallo"
+        description="Data dynamically populated from the data rendering component" />
+
+    <aura:attribute name="disabledField" type="String" access="global" 
+        description="If defined the field is evaluated when item is clicked, so field should be of type Boolean and true indicates item cannot be selected" />
+    
+    <aura:attribute name="containerClass" type="String" access="global" 
+        description="The style class for the surrounding container" />
+
+    <aura:attribute name="isSelected" type="Boolean" access="global" default="false" 
+        description="Indicates when item is currently selected in the parent component" />
+
+
+    <!-- methods -->
+    
+
+    <!-- attributes - privates-->
+    
+    
+    <!-- event handler -->
+    
+    
+    <!-- body -->
+    <li onclick="{!c.onItemClick}" class="{!v.containerClass}">
+        {!v.body}
+    </li>
+   
+    
+</aura:component>

@@ -1,0 +1,29 @@
+<aura:component >
+    <aura:attribute name="firstName"
+                    Type="String" 
+                    default="Hannes" 
+                    access="private"/>
+    <aura:attribute name="lastName" 
+                    Type="String" 
+                    default="Schmidt" 
+                    access="private"/>
+    <aura:attribute name="nameLength"
+                    Type="Integer"
+                    access="private"/>
+    
+    <ui:message title="Info:" severity="warning" 
+                class="{! ((v.firstName.length + v.lastName.length) > 20) ? 'active' : 'inactive'}">
+        <ui:outputTextArea aura:id="test" value="Name länger als 20 Buchstaben!"/>
+    </ui:message>
+    <b>Welcome {!v.firstName}&nbsp;{!v.lastName}</b>
+    <br/>
+    <b>{!v.nameLength}</b>
+    <br/>
+    <div>Name Length with expression: {! (false) ? 'a' : '(' + v.lastName + ')'}</div>
+    <b>{!v.firstName.length + v.lastName.length}</b>
+   
+    <lightning:input type="text" label="Firstname" name="" value="{!v.firstName}"/>
+    <lightning:input type="text" label="Lastname" name="" value="{!v.lastName}"/>
+    
+    <lightning:button label="Calculate" onclick="{!c.onCalculateButtonClick}"/>
+</aura:component>

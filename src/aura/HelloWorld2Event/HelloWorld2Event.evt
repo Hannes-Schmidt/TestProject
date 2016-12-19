@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Event template" access="global">
+	<aura:attribute name="username"
+                    type="String"/>
+</aura:event>

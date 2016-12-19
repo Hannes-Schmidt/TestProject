@@ -1,0 +1,34 @@
+<aura:component >
+  <aura:attribute name="toggleLabel"
+                  type="String"
+                  default="ToggleLabel"
+                  access="global"/>
+  <aura:attribute name="toggleButtonOnLabel"
+                  type="String"
+                  default="Enabled"
+                  access="global"/>
+  <aura:attribute name="toggleButtonOffLabel"
+                  type="String"
+                  default="Disabled"
+                  access="global"/>
+  <aura:attribute name="toggleButtonSelected"
+                  type="Boolean"
+                  access="global"/>
+                  
+  <aura:registerEvent name="toggleButtonClicked" 
+                      type="c:ToggleButtonClickedEvent" 
+                      description="ToggleButton may fire ToggleButtonClickedEvents" />
+  
+	<div class="slds-form-element">
+  <label class="slds-checkbox--toggle slds-grid">
+    <span class="slds-form-element__label slds-m-bottom--none">{!v.toggleLabel}</span>
+    <input name="checkbox" type="checkbox" aura:id="toggleButton" onclick="{!c.handleToggleButtonClicked}" 
+    aria-describedby="toggle-desc" value="{!v.toggleButtonSelected}"/>
+    <span id="toggle-desc" class="slds-checkbox--faux_container" aria-live="assertive">
+      <span class="slds-checkbox--faux"></span>
+      <span class="slds-checkbox--on">{!v.toggleButtonOnLabel}</span>
+      <span  class="slds-checkbox--off">{!v.toggleButtonOffLabel}</span>
+    </span>
+  </label>
+</div>
+</aura:component>

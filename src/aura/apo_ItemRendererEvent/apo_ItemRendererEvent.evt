@@ -1,0 +1,15 @@
+<!--
+    Copyright 2016 appero GmbH 
+    All rights reserved. 
+
+    @author: cmenzinger@appero.com
+-->
+<aura:event type="COMPONENT" access="global" description="Event class for item renderers">
+
+
+    <!-- attributes -->
+    <aura:attribute name="data" access="global" type="Object"
+        description="The data the item renderer is generated from" />
+
+    
+</aura:event>

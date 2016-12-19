@@ -1,0 +1,26 @@
+<aura:component >
+	 <aura:attribute name="textAreaOutput" 
+                     type="String" 
+                     description="Stores the output value of the textArea" />
+     <aura:attribute name="toggleButtonSelected" 
+                     type="Boolean" 
+                     description="Stores the state of the ToggleButton" />
+     <aura:attribute name="inputText" 
+                     type="String" 
+                     description="Stores the value of the InputText" />                                
+     
+     <aura:handler name="toggleButtonClicked" event="c:ToggleButtonClickedEvent" action="{!c.handleToggleButtonClicked}"/>
+     <aura:handler name="inputTextChanged" event="c:InputTextChangedEvent" action="{!c.handleInputTextChanged}"/>
+     
+     <div>
+     <p>Hallo das ist ein Test</p>   
+     </div>
+     <c:InputText />
+     <c:ToggleButton />
+     <p>Show OutputArea if ToggleButton is enabled</p>
+     <ui:button label="Show Output" 
+                aura:id="button" 
+                press="{!c.handleButtonPressed}"/>
+     <ui:outputTextArea aura:id="textArea" 
+                        value="{!v.textAreaOutput}"/>
+</aura:component>

@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="record" type="Contact" access="private"/>
+    <force:recordPreview aura:id="recordHandler"
+                         recordId="{!v.recordId}"
+                         fields="FirstName, LastName, Phone, Email"
+                         targetRecord="{!v.record}"
+                         mode="EDIT"/>
+    <ui:inputText label="Contact First Name" value="{!v.record.FirstName}"/>
+    <ui:inputText label="Contact Last Name" value="{!v.record.LastName}"/>
+    <ui:inputPhone label="Contact Phone" value="{!v.record.Phone}"/>
+    <ui:inputEmail label="Contact Email" value="{!v.record.Email}"/>
+    <ui:button label="Save" press="{!c.onSaveButtonPress}"/>
+</aura:component>

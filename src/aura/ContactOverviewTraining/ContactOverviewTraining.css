@@ -1,0 +1,24 @@
+.THIS table {
+    border-collapse: collapse;
+    display: block;
+    overflow: auto;
+    margin: 2% 0;
+}
+
+.THIS td, .THIS th {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.THIS td, .THIS th {
+    padding: 5px 5px 5px 5px;
+}
+
+.THIS.hide {
+    display: none;
+}
+
+.THIS table {
+    padding: 5px;
+    height: 500px;
+}

@@ -1,0 +1,49 @@
+<aura:component controller="ContactListController">
+    <aura:attribute name="filter" type="String" access="private"/>
+    <aura:attribute name="contacts" type="Contact[]" access="private"/>
+    <aura:attribute name="clickedContact" type="Contact" access="private"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.filter}" action="{!c.onFilterChange}"/>
+    
+    
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem size="12">
+            <lightning:input type="text" name="filter" label="Filter: " value="{!v.filter}"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" size="3">
+            <lightning:card class="{! (v.contacts.length > 0) ? '' : 'hide'}">
+                <aura:set attribute="title">
+                    <lightning:badge label="Contact List"/>
+                </aura:set>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Kontakt Name</th>
+                            <th>E-mail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.contacts}" var="contact" indexVar="index">
+                            <tr onclick="{!c.onContactClick}" data-contact-index="{!index}">
+                                <td>{!contact.Name}</td>
+                                <td>{!contact.Email}</td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </lightning:card>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="9">
+            <lightning:card >
+                <aura:set attribute="title">
+                    <lightning:badge label="Contact Record"/>
+                </aura:set>
+                
+                <c:ContactDetail contact="{!v.clickedContact}"/>
+            </lightning:card> 
+        </lightning:layoutItem>
+    </lightning:layout>
+    
+</aura:component>

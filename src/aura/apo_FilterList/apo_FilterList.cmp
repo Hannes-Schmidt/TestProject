@@ -1,0 +1,61 @@
+<!--
+    Copyright 2016 appero GmbH 
+    All rights reserved. 
+
+    @author: cmenzinger@appero.com
+-->
+<aura:component access="global"
+    description="A container providing basic mechanism to visualize and filter list items from a data provider. All list item components must extend apo_BaseListItemRenderer class">    
+    
+   <!-- dependencies -->
+
+ 
+    <!-- events -->
+    <aura:registerEvent name="listItemSelect" type="c:apo_ItemRendererEvent" />
+
+
+    <!-- attributes -->
+     <aura:attribute name="dataProvider" type="List" access="global" default="[]"
+        description="The data structure defining the whole list which should be filtered"/>
+
+    <aura:attribute name="searchField" type="String" access="global"
+        description="The field name inside the data provider structure where the search should be checked against"/>
+
+    <aura:attribute name="searchText" type="String" access="global" 
+        description="The current search string to match data structure for" />
+    
+    <aura:attribute name="listItemRendererComponentName" type="String" access="global"
+        description="The component class used to render single items"/>
+    
+    <aura:attribute name="listElementsContainerClass" type="String" access="global"
+        description="The style class used for the list elements ul-container"/>
+
+
+    <!-- methods -->
+    <aura:method name="setSelectedIndex" action="{!c.onSetSelectedIndex}" access="global" 
+        description="Sets certain list element as selected one">
+        <aura:attribute name="index" type="Integer" description="The index within the dataprovider which should be selected" />
+    </aura:method>
+    
+
+    <!-- attributes - privates-->
+    
+    
+    <!-- event handler -->
+    <aura:handler name="change" value="{!v.dataProvider}" action="{!c.onDataProviderChange}" />
+    <aura:handler name="change" value="{!v.searchText}" action="{!c.onSearchTextChange}" />
+    
+    
+    <!-- body -->
+
+    <!-- the list container where all list iten renderer instances will be renderer to -->
+    <ul aura:id="listElementsContainer"
+        class="{!v.listElementsContainerClass}"
+        >
+        <!-- list item renderers will go here dynamically -->
+    </ul> 
+
+        
+   
+    
+</aura:component>

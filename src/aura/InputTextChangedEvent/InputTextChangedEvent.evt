@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="A (COMPONENT)event that is fired when the InputText  is changed">
+    <aura:attribute name="inputText" 
+                    type="String" 
+                    description="Attribute that stores the value of the InputText" />
+</aura:event>

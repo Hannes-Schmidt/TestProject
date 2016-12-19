@@ -1,0 +1,7 @@
+.THIS.active {
+    display: block;
+}
+
+.THIS.inactive {
+    display: none;
+}

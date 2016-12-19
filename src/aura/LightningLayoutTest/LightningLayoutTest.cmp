@@ -1,0 +1,22 @@
+<aura:component >
+    <lightning:card >
+        <aura:set attribute="title">
+            <lightning:badge label="Hello"/>
+        </aura:set>
+        
+        <lightning:layout horizontalAlign="end" multipleRows="true">
+            <lightning:layoutItem size="12">
+                Hallo
+            </lightning:layoutItem>
+            <lightning:layoutItem size="3">
+                Teil 1 (1/4)
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6">
+                Teil 2 (2/4)
+            </lightning:layoutItem>
+            <lightning:layoutItem size="3">
+                Teil 3 (1/4)
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>

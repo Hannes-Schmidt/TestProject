@@ -1,0 +1,39 @@
+<aura:component >
+    <aura:attribute name="portfolio" type="Object[]" description="" />
+    <aura:attribute name="portfolioList" type="Object[]" description="" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+
+	<lightning:card >
+        <aura:set attribute="title" >
+            <lightning:select label="Select Portfolio" name="portfolioSelect" onchange="{!c.onportfolioSelectChange}" aura:id="portfolioSelect">
+            </lightning:select>
+        </aura:set>
+        <table>
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Certified</th>
+                    <th>My</th>
+                    <th>Master</th>
+                    <th>Professional</th>
+                    <th>Authorized</th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.portfolio}" var="role">
+                    <tr>
+                        <td>{!role.Role}</td>
+                        <td>total certified (Experts)</td>
+                        <td>{!(role.CertifiedTotal == 0) ? ''  : role.CertifiedTotal}{!(role.MasterExperts == 0 || role.ProfessionalExperts == 0 || role.AuthorizedExperts == 0) ? '(' + role.CertifiedExperts + ')' : ''}</td>
+                        <td class="{!(role.CertifiedTotal >= role.MasterTotal) ? 'green' : 'red'}">{!(role.MasterTotal == 0) ? ''  : role.MasterTotal}{!(role.MasterExperts == 0) ? ''  : '(' + role.MasterExperts + ')'}</td>
+                        <td class="{!(role.CertifiedTotal >= role.ProfessionalTotal) ? 'green' : 'red'}">{!(role.ProfessionalTotal == 0) ? ''  : role.ProfessionalTotal}{!(role.ProfessionalExperts == 0) ? ''  : '(' + role.ProfessionalExperts + ')'}</td>
+                        <td class="{!(role.CertifiedTotal >= role.AuthorizedTotal) ? 'green' : 'red'}">{!(role.AuthorizedTotal == 0) ? ''  : role.AuthorizedTotal}{!(role.AuthorizedExperts == 0) ? ''  : '(' + role.AuthorizedExperts + ')'}</td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </lightning:card>
+    <lightning:button label="test" onclick="{!c.testButtonClicked}"/>
+</aura:component>

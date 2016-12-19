@@ -1,0 +1,8 @@
+<!--
+deprecated
+-->
+<aura:event type="APPLICATION" access="global" 
+    description="Event for all project structure related use cases">
+
+    
+</aura:event>

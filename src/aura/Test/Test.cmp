@@ -1,0 +1,7 @@
+<aura:component >
+    
+    <aura:attribute name="testFacets" type="String" description="" />
+    <div>Hallo</div>
+    {!v.body}
+    {!v.testFacets}
+</aura:component>

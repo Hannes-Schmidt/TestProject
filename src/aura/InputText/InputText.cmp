@@ -1,0 +1,30 @@
+<aura:component >
+<aura:attribute name="inputTextLabel" 
+                type="String"
+                default="InputTextLable" 
+                description="Stores the value of the inputText label attribute" />
+<aura:attribute name="inputTextValue" 
+                type="String"  
+                description="Stores the value of the inputText value attribute" />
+<aura:attribute name="inputTextPlaceholder" 
+                type="String"  
+                default="Placeholder text"
+                description="Stores the value of the inputText placeholder attribute" />
+                
+<aura:registerEvent name="inputTextChanged" 
+                    type="c:InputTextChangedEvent" 
+                    description="InputText may fire InputTextChangedEvents" />
+
+      <div class="slds-form-element slds-is-required">
+          <div class="slds-form-element__control">
+              <ui:inputText aura:id="inputText" 
+                            label="{!v.inputTextLabel}"
+                            class="slds-input"
+                            labelClass="slds-form-element__label"
+                            value="{!v.inputTextValue}"
+                            change="{!c.handleInputTextChanged}"
+                            placeholder="{!v.inputTextPlaceholder}"
+                            required="true"/>
+          </div>
+     </div>
+</aura:component>

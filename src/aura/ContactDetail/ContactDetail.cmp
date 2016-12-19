@@ -1,0 +1,24 @@
+<aura:component >
+    <aura:attribute name="contact" type="Contact" access="public"/>
+    
+    <lightning:layout class="{!(empty(v.contact)) ? 'inactive' : ''}" multipleRows="true">
+        <lightning:layoutItem size="12">
+            <div class="layoutItem"><b>{!v.contact.Name}</b></div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="12">
+            <div class="layoutItem"><b>Account: </b>{!v.contact.Account.Name}</div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="6">
+            <div class="layoutItem"><b>Firstname: </b>{!v.contact.FirstName}</div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="6">
+            <div class="layoutItem"><b>Lastname: </b>{!v.contact.LastName}</div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="6">
+            <div class="layoutItem"><b>E-mail: </b>{!v.contact.Email}</div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="6">
+            <div class="layoutItem"><b>Phone Number: </b>{!v.contact.Phone}</div>
+        </lightning:layoutItem>
+    </lightning:layout>   
+</aura:component>

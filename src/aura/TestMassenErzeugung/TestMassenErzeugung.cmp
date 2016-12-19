@@ -1,0 +1,69 @@
+<aura:component controller="AusgabenMassenanlageController">
+    
+    
+    <aura:attribute name="templates" type="Ausgabe__c[]" description="" />
+    <aura:attribute name="selectedTemplateId" type="Id" description="" />
+    <aura:attribute name="issueNumber" type="Integer" description="" />
+    <aura:attribute name="publicationCycle" type="String" default="daily" description="" />
+    <aura:attribute name="weekdayCheckboxes" type="Boolean[]" default="[false, false, false, false, false, false, false]" description="" />
+    <aura:attribute name="selectedWeekday" type="Integer" default="0" description="" />
+    <aura:attribute name="numberOfIssues" type="Integer" description="" />
+    <aura:attribute name="startDate" type="Date" description="" />
+    <aura:attribute name="daysBeforeClosingDate" type="Integer" description="" />
+    <aura:attribute name="daysBeforeSubmissionDeadline" type="Integer" description="" />
+    <aura:attribute name="formValidationErrorMessage" type="String" default="Complete all fields!" description="" />
+    <aura:attribute name="weekdayCheckboxErrorMessage" type="String" default="When using daily as publication cycle select at least two weekdays or use the weekly publication cycle!" description="" />
+    
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    
+    
+    <div>
+        <div aura:id="formValidationErrorMessageContainer"/>
+        <div>
+            <lightning:select name="templateSelect" label="Vorlage:" onchange="{!c.onTemplateSelectChange}" value="{!v.selectedTemplateId}" aura:id="templateSelect">
+                <option value="0">Options are loading...</option>
+            </lightning:select>
+        </div>
+        <div>
+            <lightning:input type="text" name="issueNumber" label="Ausgaben Nr:" value="{!v.issueNumber}" required="true" aura:id="issueNumberInput" maxlength="2"/>
+        </div>
+        <div>
+            <lightning:select name="publicationCycleSelect" label="Erscheinungszyklus:" onchange="{!c.onPublicationCycleSelectChange}" value="{!v.publicationCycle}">
+                <option label="Monatlich" value="monthly"/>
+                <option label="Wöchentlich" value="weekly"/>
+                <option label="Täglich" value="daily"/>
+            </lightning:select>
+        </div>
+        <div aura:id="weekdayCheckboxes">
+            <lightning:input type="checkbox" name="mondayCheckbox" label="Mo" checked="{!v.weekdayCheckboxes[0]}"/>
+            <lightning:input type="checkbox" name="tuesdayCheckbox" label="Di" checked="{!v.weekdayCheckboxes[1]}"/>
+            <lightning:input type="checkbox" name="wednesdayCheckbox" label="Mi" checked="{!v.weekdayCheckboxes[2]}"/>
+            <lightning:input type="checkbox" name="thursdayCheckbox" label="Do" checked="{!v.weekdayCheckboxes[3]}"/>
+            <lightning:input type="checkbox" name="fridayCheckbox" label="Fr" checked="{!v.weekdayCheckboxes[4]}"/>
+            <lightning:input type="checkbox" name="saturdayCheckbox" label="Sa" checked="{!v.weekdayCheckboxes[5]}"/>
+            <lightning:input type="checkbox" name="sundayCheckbox" label="So" checked="{!v.weekdayCheckboxes[6]}"/>
+        </div>
+        <div aura:id="weekdaySelect">
+            <lightning:select name="weekdaySelect" label="Wochentage" value="{!v.selectedWeekday}">
+                <option label="Montag" value="0"/>
+                <option label="Dienstag" value="1"/>
+                <option label="Mittwoch" value="2"/>
+                <option label="Donnerstag" value="3"/>
+                <option label="Freitag" value="4"/>
+                <option label="Samstag" value="5"/>
+                <option label="Sonntag" value="6"/>
+            </lightning:select>
+        </div>
+        <div>
+            <lightning:input type="number" name="numberOfIssues" label="Anzahl Ausgaben:" value="{!v.numberOfIssues}" required="true" aura:id="numberOfIssuesInput"/>
+            <lightning:input type="date" name="startDate" label="Startdatum:" value="{!v.startDate}" required="true" aura:id="startDateInput"/>
+            <lightning:input type="number" name="daysBeforeClosingDate" label="Anzeigenschluss (Tage vor Erscheinungstermin):" value="{!v.daysBeforeClosingDate}" required="true" aura:id="daysBeforeClosingDateInput"/>
+            <lightning:input type="number" name="daysBeforeSubmissionDeadline" label="Druckunterlagenschluss (Tage vor Erscheinungstermin):" value="{!v.daysBeforeSubmissionDeadline}" required="true" aura:id="daysBeforeSubmissionDeadlineInput"/>
+        </div>
+        <div>
+            <lightning:button label="Abbrechen" onclick="{!c.onCancelButtonClicked}"/>
+            <lightning:button label="Ausgaben erzeugen" onclick="{!c.onDuplicateIssueButtonClicked}"/>
+        </div>     
+    </div>
+</aura:component>

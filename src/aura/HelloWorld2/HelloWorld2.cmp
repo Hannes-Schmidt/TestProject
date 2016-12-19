@@ -1,0 +1,15 @@
+<aura:component description="test">
+    <aura:attribute name="buttonlabel"
+                    type="String"
+                    default="test"
+                    access="global"/>
+    <aura:attribute name="username"
+                    type="String"
+                    access="private"/>
+    <aura:registerEvent name="userButtonClicked" type="c:HelloWorld2Event"/>
+                   
+                        <span class="{! empty(v.username) ? 'warningText' : ''}">Hallo</span>
+                        <ui:button label="{!v.buttonlabel}" press="{!c.buttonPressed}" />
+    <ui:inputText label="Username" aura:id="UsernameInput" value="{!v.username}" updateOn="keyup" />
+    <textArea name="textArea" rows="1" columns="2" readonly="true">{!v.username}</textArea>                    
+</aura:component>

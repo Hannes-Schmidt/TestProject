@@ -1,0 +1,33 @@
+.THIS .green {
+    background-color: green;
+}
+
+.THIS .red {
+    background-color: red;
+}
+
+.THIS .green {
+    background-color: green;
+}
+
+.THIS .red {
+    background-color: red;
+}
+
+.THIS table {
+    width: 100%;
+}
+
+.THIS th, .THIS td {
+    text-align: center;
+    padding: 8px;
+    border: 2px solid white;
+}
+
+.THIS thead tr {
+    background-color: rgb(224, 229, 238);
+}
+
+.THIS tr:nth-child(even) {
+    background-color: rgb(224, 229, 238);
+}

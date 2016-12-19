@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="A (COMPONENT)event that is fired when the ToggleButton is clicked" >
+    <aura:attribute name="toggleButtonSelected" 
+                    type="Boolean" 
+                    description="Attribute that stores the value of the ToggleButton" />
+</aura:event>
