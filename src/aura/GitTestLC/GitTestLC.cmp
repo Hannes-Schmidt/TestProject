@@ -32,6 +32,7 @@
     -->
     <aura:attribute name="xNumber" type="Integer" description="" access="private"/>
     <aura:attribute name="yNumber" type="Integer" description="" access="private"/>
+    <aura:attribute name="sumXY" type="Integer" description="" access="private"/>
  
     
     
@@ -48,20 +49,24 @@
     <div>
        	<lightning:card class="container">
             <aura:set attribute="title">
-                <lightning:badge label="GitTest"/>
+                <lightning:badge label="Git Test"/>
             </aura:set>
             <lightning:layout multipleRows="true">
-                <lightning:layoutItem size="3" padding="horizontal-small">
+                <lightning:layoutItem size="3" padding="around-small">
                     <lightning:input type="number" label="X" name="x" value="{!v.xNumber}" />
                 </lightning:layoutItem>
-                <lightning:layoutItem size="3" padding="horizontal-small">
+                <lightning:layoutItem size="3" padding="around-small">
                     <lightning:input type="number" label="Y" name="y" value="{!v.yNumber}" />
                 </lightning:layoutItem>
-                <lightning:layoutItem size="6" padding="horizontal-small">
+                <lightning:layoutItem size="6" padding="around-small"/>
+                <lightning:layoutItem size="3" padding="around-small">
+                    <span>Sum X + Y :</span>
+                    <span>{!v.sumXY}</span>
                 </lightning:layoutItem>
-                <lightning:layoutItem size="3" padding="horizontal-small">
-                    <lightning:button label="Calculate X + Y" onclick="{!c.onCalculateButtonClick}"/>
+                <lightning:layoutItem size="3" padding="around-small">
+                    <lightning:button label="Calculate" onclick="{!c.onCalculateButtonClick}"/>
                 </lightning:layoutItem>
+                <lightning:layoutItem size="6" padding="around-small"/>
             </lightning:layout>
         </lightning:card>
     </div>

@@ -9,7 +9,7 @@
     /**
      * DescribeME
      */
-    calculateValues : function(x, y) {
-        return parseInt(x, 10) + parseInt(y, 10);
+    calculateValues : function(component, x, y) {
+        component.set("v.sumXY", parseInt(x, 10) + parseInt(y, 10));
     }
 })
