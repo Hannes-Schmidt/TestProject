@@ -9,5 +9,4 @@
     onCalculateButtonClick: function(component, event, helper) {
         helper.calculateValues(component);
     }
-    
 })

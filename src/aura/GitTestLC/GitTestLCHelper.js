@@ -34,6 +34,14 @@
         
         var calculation = {"X": x, "Y": y, "arithmeticOperator": operator, "result": result};
         calculations.push(calculation);
+        calculations = this.checkCalculationsArrayLength(calculations);
         component.set("v.calculations", calculations);
+    },
+    
+    checkCalculationsArrayLength: function(calculations) {
+        if(calculations.length > 5) {
+            calculations.shift();
+        }
+        return calculations
     }
 })

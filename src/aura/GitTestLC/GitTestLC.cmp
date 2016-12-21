@@ -33,13 +33,12 @@
     <aura:attribute name="xNumber" type="Double" description="" access="private"/>
     <aura:attribute name="yNumber" type="Double" description="" access="private"/>
     <aura:attribute name="operator" type="String" description="" access="private" default="+"/>
-    <aura:attribute name="calculations" type="Object[]" description="" access="private"/> 
+    <aura:attribute name="calculations" type="Object[]" description="" access="private"/>
     
     
     <!-- 
       event handler 
-    -->
-    
+    -->    
 
     
     <!--      -->
