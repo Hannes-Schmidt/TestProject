@@ -11,10 +11,28 @@
      */
     calculateValues : function(component) {
         var calculations = component.get("v.calculations");
-        var x = parseInt(component.get("v.xNumber"), 10);
-        var y = parseInt(component.get("v.yNumber"), 10);
+        var x = parseFloat(component.get("v.xNumber"), 10);
+        var y = parseFloat(component.get("v.yNumber"), 10);
+        var operator = component.get("v.operator");
+        var result;
         
-        var calculation = {"X": x, "Y": y, "arithmeticOperator": "+", "result": x+y};
+        if(operator === "+") {
+            result = x + y;
+        } else {
+            if(operator === "-") {
+                result = x - y;
+            } else {
+                if(operator === "*") {
+                    result = x * y;
+                } else {
+                    if(operator === "/") {
+                        result = x / y;
+                    }
+                }
+            }
+        }
+        
+        var calculation = {"X": x, "Y": y, "arithmeticOperator": operator, "result": result};
         calculations.push(calculation);
         component.set("v.calculations", calculations);
     }

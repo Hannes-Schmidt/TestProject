@@ -30,8 +30,9 @@
     <!-- 
       attributes - privates
     -->
-    <aura:attribute name="xNumber" type="Integer" description="" access="private"/>
-    <aura:attribute name="yNumber" type="Integer" description="" access="private"/>
+    <aura:attribute name="xNumber" type="Double" description="" access="private"/>
+    <aura:attribute name="yNumber" type="Double" description="" access="private"/>
+    <aura:attribute name="operator" type="String" description="" access="private" default="+"/>
     <aura:attribute name="calculations" type="Object[]" description="" access="private"/> 
     
     
@@ -51,11 +52,19 @@
                 <lightning:badge label="Git Test"/>
             </aura:set>
             <lightning:layout multipleRows="true">
-                <lightning:layoutItem size="3" padding="around-small">
-                    <lightning:input type="number" label="X" name="x" value="{!v.xNumber}" />
+                <lightning:layoutItem size="2" padding="around-small">
+                    <lightning:input type="number" label="X" name="x" value="{!v.xNumber}" step="any" />
                 </lightning:layoutItem>
-                <lightning:layoutItem size="3" padding="around-small">
-                    <lightning:input type="number" label="Y" name="y" value="{!v.yNumber}" />
+                <lightning:layoutItem size="2" padding="around-small">
+                    <lightning:select label="operator" name="operatorSelect" value="{!v.operator}">
+                        <option label="+" value="+">+</option>
+                        <option label="-" value="-">-</option>
+                        <option label="*" value="*">*</option>
+                        <option label="/" value="/">/</option>
+                    </lightning:select>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="2" padding="around-small">
+                    <lightning:input type="number" label="Y" name="y" value="{!v.yNumber}" step="any" />
                 </lightning:layoutItem>
                 <lightning:layoutItem size="6" padding="around-small"/>
                 <lightning:layoutItem size="3" padding="around-small"/>
