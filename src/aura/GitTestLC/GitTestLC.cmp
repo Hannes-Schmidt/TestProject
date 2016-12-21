@@ -32,8 +32,7 @@
     -->
     <aura:attribute name="xNumber" type="Integer" description="" access="private"/>
     <aura:attribute name="yNumber" type="Integer" description="" access="private"/>
-    <aura:attribute name="sumXY" type="Integer" description="" access="private"/>
- 
+    <aura:attribute name="calculations" type="Object[]" description="" access="private"/> 
     
     
     <!-- 
@@ -59,14 +58,34 @@
                     <lightning:input type="number" label="Y" name="y" value="{!v.yNumber}" />
                 </lightning:layoutItem>
                 <lightning:layoutItem size="6" padding="around-small"/>
-                <lightning:layoutItem size="3" padding="around-small">
-                    <span>Sum X + Y :</span>
-                    <span>{!v.sumXY}</span>
-                </lightning:layoutItem>
+                <lightning:layoutItem size="3" padding="around-small"/>
                 <lightning:layoutItem size="3" padding="around-small">
                     <lightning:button label="Calculate" onclick="{!c.onCalculateButtonClick}"/>
                 </lightning:layoutItem>
                 <lightning:layoutItem size="6" padding="around-small"/>
+                <lightning:layoutItem size="6" padding="around-small">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>X</th>
+                                <th>+</th>
+                                <th>Y</th>
+                                <th>Result</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <aura:iteration items="{!v.calculations}" var="calculation">
+                                <tr>
+                                    <td>{!calculation.X}</td>
+                                    <td>{!calculation.arithmeticOperator}</td>
+                                    <td>{!calculation.Y}</td>
+                                    <td>{!calculation.result}</td>
+                                </tr>
+                            </aura:iteration>
+                        </tbody>
+                    </table>
+                </lightning:layoutItem>
             </lightning:layout>
         </lightning:card>
     </div>

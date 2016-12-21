@@ -7,9 +7,7 @@
  */
 ({
     onCalculateButtonClick: function(component, event, helper) {
-        var x = component.get("v.xNumber");
-        var y = component.get("v.yNumber");
-        helper.calculateValues(component, x, y);
+        helper.calculateValues(component);
     }
     
 })

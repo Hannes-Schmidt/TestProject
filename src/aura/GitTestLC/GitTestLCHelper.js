@@ -9,7 +9,13 @@
     /**
      * DescribeME
      */
-    calculateValues : function(component, x, y) {
-        component.set("v.sumXY", parseInt(x, 10) + parseInt(y, 10));
+    calculateValues : function(component) {
+        var calculations = component.get("v.calculations");
+        var x = parseInt(component.get("v.xNumber"), 10);
+        var y = parseInt(component.get("v.yNumber"), 10);
+        
+        var calculation = {"X": x, "Y": y, "arithmeticOperator": "+", "result": x+y};
+        calculations.push(calculation);
+        component.set("v.calculations", calculations);
     }
 })

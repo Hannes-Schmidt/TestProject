@@ -9,3 +9,13 @@
     margin: 10px 10px 10px 10px;
 }
 
+.THIS table {
+    width: 100%;
+}
+
+.THIS th, .THIS td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid black;
+}
+
