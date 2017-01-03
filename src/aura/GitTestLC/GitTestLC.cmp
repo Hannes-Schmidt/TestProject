@@ -66,8 +66,8 @@
                     <lightning:input type="number" label="Y" name="y" value="{!v.yNumber}" step="any" />
                 </lightning:layoutItem>
                 <lightning:layoutItem size="6" padding="around-small"/>
-                <lightning:layoutItem size="3" padding="around-small"/>
-                <lightning:layoutItem size="3" padding="around-small">
+                <lightning:layoutItem size="5" padding="around-small"/>
+                <lightning:layoutItem size="1" padding="around-small">
                     <lightning:button label="Calculate" onclick="{!c.onCalculateButtonClick}"/>
                 </lightning:layoutItem>
                 <lightning:layoutItem size="6" padding="around-small"/>
